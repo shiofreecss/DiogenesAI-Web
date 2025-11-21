@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  body {
+    @apply bg-gray-50 dark:bg-terminal-bg text-gray-900 dark:text-terminal-fg;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Binary/Code aesthetic background pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        currentColor 2px,
+        currentColor 4px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  #root {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose h1 {
+    @apply text-4xl font-bold mb-6 text-gray-900 dark:text-terminal-gold;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose h2 {
+    @apply text-3xl font-semibold mt-8 mb-4 text-gray-800 dark:text-terminal-gold;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose h3 {
+    @apply text-2xl font-semibold mt-6 mb-3 text-gray-800 dark:text-terminal-gold;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose p {
+    @apply mb-4 text-gray-700 dark:text-terminal-fg leading-relaxed;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose ul, .prose ol {
+    @apply mb-4 ml-6;
+  }
+  
+  .prose li {
+    @apply mb-2 text-gray-700 dark:text-terminal-fg;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono;
+    @apply text-yellow-600 dark:text-terminal-gold;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 dark:bg-black p-4 rounded-lg overflow-x-auto mb-4 relative;
+    @apply border border-gray-800 dark:border-terminal-gold;
+    @apply shadow-lg;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent text-gray-100 dark:text-terminal-gold p-0;
+    @apply text-sm leading-relaxed;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Syntax highlighting colors - Light mode */
+  .prose pre code .hljs-keyword,
+  .prose pre code .hljs-selector-tag,
+  .prose pre code .hljs-built_in {
+    color: #ca8a04;
+  }
+  
+  .prose pre code .hljs-string,
+  .prose pre code .hljs-attr {
+    color: #a16207;
+  }
+  
+  .prose pre code .hljs-comment {
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .prose pre code .hljs-number,
+  .prose pre code .hljs-literal {
+    color: #dc2626;
+  }
+  
+  .prose pre code .hljs-function,
+  .prose pre code .hljs-title {
+    color: #2563eb;
+  }
+  
+  .prose pre code .hljs-variable {
+    color: #7c3aed;
+  }
+  
+  .prose pre code .hljs-type {
+    color: #d97706;
+  }
+  
+  .prose pre code .hljs-operator {
+    color: #ca8a04;
+  }
+  
+  .prose pre code .hljs-punctuation {
+    color: #ca8a04;
+  }
+  
+  /* Syntax highlighting colors - Dark mode */
+  .dark .prose pre code .hljs-keyword,
+  .dark .prose pre code .hljs-selector-tag,
+  .dark .prose pre code .hljs-built_in {
+    color: #FFD700;
+  }
+  
+  .dark .prose pre code .hljs-string,
+  .dark .prose pre code .hljs-attr {
+    color: #58a6ff;
+  }
+  
+  .dark .prose pre code .hljs-comment {
+    color: #8b949e;
+    font-style: italic;
+  }
+  
+  .dark .prose pre code .hljs-number,
+  .dark .prose pre code .hljs-literal {
+    color: #f85149;
+  }
+  
+  .dark .prose pre code .hljs-function,
+  .dark .prose pre code .hljs-title {
+    color: #79c0ff;
+  }
+  
+  .dark .prose pre code .hljs-variable {
+    color: #bc8cff;
+  }
+  
+  .dark .prose pre code .hljs-type {
+    color: #d29922;
+  }
+  
+  .dark .prose pre code .hljs-operator {
+    color: #FFD700;
+  }
+  
+  .dark .prose pre code .hljs-punctuation {
+    color: #FFD700;
+  }
+  
+  /* Inline code styling */
+  .prose :not(pre) > code {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono;
+    @apply text-yellow-600 dark:text-terminal-gold;
+    @apply border border-gray-200 dark:border-gray-700;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  /* Ensure pre code blocks are styled correctly */
+  .prose pre.hljs {
+    @apply bg-gray-900 dark:bg-black text-gray-100 dark:text-terminal-gold p-4 rounded-lg overflow-x-auto mb-4;
+    @apply border border-gray-800 dark:border-terminal-gold shadow-lg;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose pre.hljs code {
+    @apply bg-transparent text-gray-100 dark:text-terminal-gold p-0;
+    @apply text-sm leading-relaxed;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  
+  .prose a {
+    @apply text-primary-600 dark:text-terminal-gold hover:text-primary-700 dark:hover:text-terminal-gold/80 underline;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary-500 dark:border-terminal-gold pl-4 italic my-4;
+    @apply text-gray-600 dark:text-terminal-fg;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+  
+  .prose img {
+    @apply rounded-lg my-4;
+  }
+  
+  /* Terminal-style elements */
+  .terminal-prompt::before {
+    content: '$ ';
+    @apply text-terminal-gold dark:text-terminal-gold;
+  }
+  
+  .binary-text {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+    letter-spacing: 0.1em;
+  }
+}
+
