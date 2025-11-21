@@ -62,6 +62,7 @@ export const translations = {
       joinCommunity: 'Tham gia cộng đồng của chúng tôi',
       chatWithUs: 'Trò chuyện với chúng tôi',
       joinDiscord: 'Tham gia máy chủ Discord',
+      viewProjects: 'Xem các dự án của chúng tôi',
     },
     footer: {
       description: 'Khám phá AI, Machine Learning, Vibecoding và hành trình Solopreneur.',
@@ -143,6 +144,7 @@ export const translations = {
       joinCommunity: 'Join our community',
       chatWithUs: 'Chat with us',
       joinDiscord: 'Join our Discord server',
+      viewProjects: 'View our projects',
     },
     footer: {
       description: 'Exploring AI, Machine Learning, Vibecoding, and the Solopreneur journey.',
@@ -224,6 +226,7 @@ export const translations = {
       joinCommunity: '加入我们的社区',
       chatWithUs: '与我们聊天',
       joinDiscord: '加入我们的 Discord 服务器',
+      viewProjects: '查看我们的项目',
     },
     footer: {
       description: '探索人工智能、机器学习、Vibecoding 和独立创业之旅。',
@@ -305,6 +308,7 @@ export const translations = {
       joinCommunity: 'コミュニティに参加',
       chatWithUs: '私たちとチャット',
       joinDiscord: 'Discordサーバーに参加',
+      viewProjects: 'プロジェクトを表示',
     },
     footer: {
       description: 'AI、機械学習、Vibecoding、ソロプレナーシップの旅を探求。',
