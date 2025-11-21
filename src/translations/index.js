@@ -58,6 +58,10 @@ export const translations = {
       solopreneurshipDesc: 'Những hiểu biết, bài học và kinh nghiệm từ việc xây dựng doanh nghiệp một mình. Điều hướng hành trình khởi nghiệp từng bước một.',
       joinJourney: 'Tham gia hành trình',
       joinText: 'Cho dù bạn là một developer dày dạn kinh nghiệm, một doanh nhân đầy khát vọng, hay ai đó tò mò về AI và công nghệ, chúng tôi mời bạn tham gia cùng chúng tôi trong hành trình này. Khám phá các bài đăng blog của chúng tôi, học hỏi từ kinh nghiệm của chúng tôi và chia sẻ những hiểu biết của riêng bạn.',
+      connectWithUs: 'Kết nối với chúng tôi',
+      joinCommunity: 'Tham gia cộng đồng của chúng tôi',
+      chatWithUs: 'Trò chuyện với chúng tôi',
+      joinDiscord: 'Tham gia máy chủ Discord',
     },
     footer: {
       description: 'Khám phá AI, Machine Learning, Vibecoding và hành trình Solopreneur.',
@@ -135,6 +139,10 @@ export const translations = {
       solopreneurshipDesc: 'Insights, lessons, and experiences from building businesses solo. Navigating the entrepreneurial journey one step at a time.',
       joinJourney: 'Join the Journey',
       joinText: "Whether you're a seasoned developer, an aspiring entrepreneur, or someone curious about AI and technology, we invite you to join us on this journey. Explore our blog posts, learn from our experiences, and share your own insights.",
+      connectWithUs: 'Connect With Us',
+      joinCommunity: 'Join our community',
+      chatWithUs: 'Chat with us',
+      joinDiscord: 'Join our Discord server',
     },
     footer: {
       description: 'Exploring AI, Machine Learning, Vibecoding, and the Solopreneur journey.',
@@ -212,6 +220,10 @@ export const translations = {
       solopreneurshipDesc: '从独自建立企业中获得见解、教训和经验。一步一步地导航创业之旅。',
       joinJourney: '加入旅程',
       joinText: '无论您是经验丰富的开发者、有抱负的企业家，还是对 AI 和技术感到好奇的人，我们都邀请您加入我们的旅程。探索我们的博客文章，从我们的经验中学习，并分享您自己的见解。',
+      connectWithUs: '与我们联系',
+      joinCommunity: '加入我们的社区',
+      chatWithUs: '与我们聊天',
+      joinDiscord: '加入我们的 Discord 服务器',
     },
     footer: {
       description: '探索人工智能、机器学习、Vibecoding 和独立创业之旅。',
@@ -289,6 +301,10 @@ export const translations = {
       solopreneurshipDesc: '一人でビジネスを構築することから得られる洞察、教訓、経験。一歩ずつ起業家の旅をナビゲート。',
       joinJourney: '旅に参加',
       joinText: '経験豊富な開発者、志のある起業家、またはAIとテクノロジーに興味のある方であれば、この旅に参加することをお勧めします。ブログ投稿を探索し、私たちの経験から学び、あなた自身の洞察を共有してください。',
+      connectWithUs: '私たちとつながる',
+      joinCommunity: 'コミュニティに参加',
+      chatWithUs: '私たちとチャット',
+      joinDiscord: 'Discordサーバーに参加',
     },
     footer: {
       description: 'AI、機械学習、Vibecoding、ソロプレナーシップの旅を探求。',
