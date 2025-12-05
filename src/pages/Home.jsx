@@ -3,12 +3,12 @@ import { posts } from '../data/posts'
 import { vibecodingProjects } from '../data/vibecodingProjects'
 import BinaryImage from '../components/BinaryImage'
 import { useTranslation } from '../hooks/useTranslation'
+import { Sparkles, Code, Briefcase, TrendingUp, ArrowRight } from 'lucide-react'
 
 const Home = () => {
   const { t, language } = useTranslation()
-  const featuredPosts = posts.slice(0, 6) // Changed from 3 to 6 for 2 rows
+  const featuredPosts = posts.slice(0, 6)
 
-  // Get project description based on language
   const getProjectDescription = (project) => {
     switch (language) {
       case 'en':
@@ -22,42 +22,57 @@ const Home = () => {
     }
   }
 
-  // Get status badge color
   const getStatusColor = (status) => {
     switch (status) {
       case 'active':
-        return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700'
+        return 'bg-green-500/10 text-green-400 border-green-500/20'
       case 'development':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700'
+        return 'bg-blue-500/10 text-blue-400 border-blue-500/20'
       case 'planning':
-        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700'
+        return 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
       default:
-        return 'bg-gray-100 dark:bg-gray-900/30 text-gray-700 dark:text-gray-400 border-gray-300 dark:border-gray-700'
+        return 'bg-slate-500/10 text-slate-400 border-slate-500/20'
     }
   }
 
   return (
-    <div className="font-mono">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 dark:from-terminal-bg dark:via-terminal-bg dark:to-terminal-gold/20 text-white dark:text-terminal-gold border-b border-primary-500 dark:border-terminal-gold/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+          {/* Badge */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 rounded-full">
+              <TrendingUp className="w-4 h-4 text-blue-400" />
+              <span className="text-sm text-blue-300">AI · ML · Vibecoding · Solopreneurship</span>
+            </div>
+          </div>
+
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-mono">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent">
               {t('home.welcome')}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100 dark:text-terminal-fg max-w-3xl mx-auto font-mono">
+            <p className="text-xl sm:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               {t('home.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/blog"
-                className="bg-white dark:bg-terminal-gold text-primary-700 dark:text-terminal-bg px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 dark:hover:bg-terminal-gold/80 transition-colors shadow-lg border-2 border-white dark:border-terminal-gold font-mono"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/50 hover:shadow-xl hover:shadow-blue-500/60"
               >
                 {t('home.readBlog')}
+                <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/about"
-                className="bg-primary-500 dark:bg-terminal-gold/20 text-white dark:text-terminal-gold px-8 py-3 rounded-lg font-semibold hover:bg-primary-400 dark:hover:bg-terminal-gold/30 transition-colors border-2 border-white dark:border-terminal-gold font-mono"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 backdrop-blur-sm hover:bg-slate-700/50 text-white rounded-xl font-semibold transition-all border border-slate-600"
               >
                 {t('home.learnMore')}
               </Link>
@@ -67,136 +82,129 @@ const Home = () => {
       </section>
 
       {/* Topics Section */}
-      <section className="py-16 bg-white dark:bg-terminal-bg">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-terminal-gold font-mono">
-            {t('home.explore')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 dark:from-gray-900 dark:to-gray-800 p-8 rounded-xl border border-amber-200 dark:border-terminal-gold/30">
-              <div className="w-12 h-12 bg-amber-500 dark:bg-terminal-gold rounded-lg flex items-center justify-center mb-4 border border-amber-600 dark:border-terminal-gold">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
+          <div className="flex items-center gap-3 mb-12">
+            <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+            <h2 className="text-4xl font-bold text-white">
+              {t('home.explore')}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* AI & ML Card */}
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-blue-500/50">
+                  <Sparkles className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  {t('about.aiMl')}
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  {t('about.aiMlDesc')}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-terminal-gold font-mono">{t('about.aiMl')}</h3>
-              <p className="text-gray-700 dark:text-terminal-fg font-mono">
-                {t('about.aiMlDesc')}
-              </p>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-gray-900 dark:to-gray-800 p-8 rounded-xl border border-yellow-200 dark:border-terminal-gold/30">
-              <div className="w-12 h-12 bg-yellow-500 dark:bg-terminal-gold rounded-lg flex items-center justify-center mb-4 border border-yellow-600 dark:border-terminal-gold">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
+            {/* Vibecoding Card */}
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-purple-500/50">
+                  <Code className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                  {t('about.vibecoding')}
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  {t('about.vibecodingDesc')}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-terminal-gold font-mono">{t('about.vibecoding')}</h3>
-              <p className="text-gray-700 dark:text-terminal-fg font-mono">
-                {t('about.vibecodingDesc')}
-              </p>
             </div>
 
-            <div className="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 p-8 rounded-xl border border-primary-200 dark:border-terminal-gold/30">
-              <div className="w-12 h-12 bg-primary-500 dark:bg-terminal-gold rounded-lg flex items-center justify-center mb-4 border border-primary-600 dark:border-terminal-gold">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+            {/* Solopreneurship Card */}
+            <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-pink-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+              <div className="relative">
+                <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-pink-500/50">
+                  <Briefcase className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">
+                  {t('about.solopreneurship')}
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  {t('about.solopreneurshipDesc')}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-terminal-gold font-mono">{t('about.solopreneurship')}</h3>
-              <p className="text-gray-700 dark:text-terminal-fg font-mono">
-                {t('about.solopreneurshipDesc')}
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Vibecoding Projects Section */}
-      <section className="py-16 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-gray-950 dark:to-gray-900">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-terminal-gold font-mono mb-3">
-              {t('home.vibecodingProjects')}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-terminal-fg font-mono">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-1 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></div>
+              <h2 className="text-4xl font-bold text-white">
+                {t('home.vibecodingProjects')}
+              </h2>
+            </div>
+            <p className="text-lg text-slate-300">
               {t('home.vibecodingSubtitle')}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {vibecodingProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg dark:shadow-terminal-gold/20 hover:shadow-xl transition-all overflow-hidden group border border-yellow-200 dark:border-terminal-gold/30 hover:border-yellow-400 dark:hover:border-terminal-gold/50"
+                className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden hover:border-slate-600 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1"
               >
-                <div className="p-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                <div className="relative p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <span className="text-4xl">{project.emoji}</span>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-terminal-gold group-hover:text-yellow-600 dark:group-hover:text-terminal-gold transition-colors font-mono">
+                        <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
                           {project.title}
                         </h3>
-                        <span className={`inline-block mt-1 text-xs px-2 py-1 rounded-full font-mono border ${getStatusColor(project.status)}`}>
+                        <span className={`inline-block mt-1 text-xs px-2.5 py-1 rounded-lg font-semibold border ${getStatusColor(project.status)}`}>
                           {t(`home.projectStatus.${project.status}`)}
                         </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 dark:text-terminal-fg text-sm mb-4 font-mono leading-relaxed">
+
+                  <p className="text-slate-300 text-sm mb-4 leading-relaxed">
                     {getProjectDescription(project)}
                   </p>
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-2 py-1 bg-yellow-100 dark:bg-terminal-gold/20 text-yellow-700 dark:text-terminal-gold rounded font-mono border border-yellow-300 dark:border-terminal-gold/50"
+                        className="text-xs px-2 py-1 bg-slate-700/50 text-slate-300 rounded-lg border border-slate-600/50"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+
                   {project.link !== '#' && (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-yellow-600 dark:text-terminal-gold hover:text-yellow-700 dark:hover:text-terminal-gold/80 font-semibold font-mono text-sm"
+                      className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors"
                     >
                       {t('home.viewProject')}
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                      <ArrowRight className="w-4 h-4" />
                     </a>
                   )}
                 </div>
@@ -206,46 +214,60 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Posts - 2 Rows */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-950">
+      {/* Featured Posts */}
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-terminal-gold font-mono">{t('home.featuredPosts')}</h2>
+            <div className="flex items-center gap-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+              <h2 className="text-4xl font-bold text-white">
+                {t('home.featuredPosts')}
+              </h2>
+            </div>
             <Link
               to="/blog"
-              className="text-primary-600 dark:text-terminal-gold hover:text-primary-700 dark:hover:text-terminal-gold/80 font-semibold font-mono"
+              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors"
             >
-              {t('home.viewAll')} →
+              {t('home.viewAll')}
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredPosts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/post/${post.slug}`}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-md dark:shadow-terminal-gold/20 hover:shadow-xl transition-shadow overflow-hidden group border border-gray-200 dark:border-terminal-gold/30"
+                className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden hover:border-slate-600 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
                 <div className="h-48 relative overflow-hidden">
                   <BinaryImage title={post.title} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-2">
+
+                <div className="relative p-6">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs px-2 py-1 bg-primary-100 dark:bg-terminal-gold/20 text-primary-700 dark:text-terminal-gold rounded-full font-mono border border-primary-300 dark:border-terminal-gold/50"
+                        className="text-xs px-2 py-1 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-terminal-gold group-hover:text-primary-600 dark:group-hover:text-terminal-gold transition-colors font-mono">
+
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-terminal-fg text-sm mb-4 line-clamp-2 font-mono">
+
+                  <p className="text-slate-300 text-sm mb-4 line-clamp-2 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center text-sm text-gray-500 dark:text-terminal-fg/70 font-mono">
+
+                  <div className="flex items-center text-sm text-slate-400">
                     <span>{post.date}</span>
                     <span className="mx-2">•</span>
                     <span>{post.readTime} min read</span>
@@ -261,4 +283,3 @@ const Home = () => {
 }
 
 export default Home
-

@@ -13,6 +13,8 @@ const Layout = ({ children }) => {
 
   const navLinks = [
     { path: '/', label: t('nav.home') },
+    { path: '/tools', label: t('nav.tools') },
+    { path: '/courses', label: t('nav.courses') },
     { path: '/blog', label: t('nav.blog') },
     { path: '/knowledge', label: t('nav.knowledge') },
     { path: '/projects', label: t('nav.projects') },
@@ -20,27 +22,27 @@ const Layout = ({ children }) => {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col font-mono">
-      <nav className="bg-white dark:bg-terminal-bg shadow-sm dark:shadow-terminal-gold/20 sticky top-0 z-50 border-b border-gray-200 dark:border-terminal-gold/30">
+    <div className="min-h-screen flex flex-col font-mono bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
+      <nav className="bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-blue-500/10 sticky top-0 z-50 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-terminal-gold dark:to-terminal-gold/80 rounded-lg flex items-center justify-center border border-gray-300 dark:border-terminal-gold">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center border border-blue-400 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/50">
                 <span className="text-white font-bold text-xl font-mono">D</span>
               </div>
-              <span className="text-xl font-bold text-gray-900 dark:text-terminal-gold font-mono">DiogenesAI</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent font-mono">DiogenesAI</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
-              <div className="flex space-x-4">
+              <div className="flex space-x-2">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-3 py-2 rounded-md text-sm font-medium font-mono transition-colors ${isActive(link.path)
-                      ? 'text-primary-600 dark:text-terminal-gold bg-primary-50 dark:bg-terminal-gold/10'
-                      : 'text-gray-700 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold hover:bg-gray-50 dark:hover:bg-terminal-gold/5'
+                    className={`px-4 py-2 rounded-xl text-sm font-medium font-mono transition-all ${isActive(link.path)
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                       }`}
                   >
                     {link.label}
@@ -56,7 +58,7 @@ const Layout = ({ children }) => {
               <LanguageToggle />
               <ThemeToggle />
               <button
-                className="p-2 rounded-md text-gray-700 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold hover:bg-gray-50 dark:hover:bg-terminal-gold/10"
+                className="p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 <svg
@@ -86,9 +88,9 @@ const Layout = ({ children }) => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium font-mono ${isActive(link.path)
-                    ? 'text-primary-600 dark:text-terminal-gold bg-primary-50 dark:bg-terminal-gold/10'
-                    : 'text-gray-700 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold hover:bg-gray-50 dark:hover:bg-terminal-gold/5'
+                  className={`block px-4 py-2 rounded-xl text-base font-medium font-mono transition-all ${isActive(link.path)
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                     }`}
                 >
                   {link.label}
@@ -101,56 +103,56 @@ const Layout = ({ children }) => {
 
       <main className="flex-grow">{children}</main>
 
-      <footer className="bg-white dark:bg-terminal-bg text-gray-700 dark:text-terminal-fg mt-16 border-t border-gray-200 dark:border-terminal-gold/30 shadow-sm dark:shadow-terminal-gold/20">
+      <footer className="bg-slate-900/80 backdrop-blur-lg border-t border-slate-800 shadow-lg shadow-blue-500/5 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 dark:from-terminal-gold dark:to-terminal-gold/80 rounded-lg flex items-center justify-center border border-gray-300 dark:border-terminal-gold">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center border border-blue-400 shadow-lg shadow-blue-500/50">
                   <span className="text-white font-bold font-mono">D</span>
                 </div>
-                <span className="text-lg font-bold text-gray-900 dark:text-terminal-gold font-mono">DiogenesAI</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent font-mono">DiogenesAI</span>
               </div>
-              <p className="text-sm font-mono text-gray-600 dark:text-terminal-fg">
+              <p className="text-sm font-mono text-slate-300">
                 {t('footer.description')}
               </p>
             </div>
             <div>
-              <h3 className="text-gray-900 dark:text-terminal-gold font-semibold mb-4 font-mono">{t('footer.quickLinks')}</h3>
+              <h3 className="text-white font-semibold mb-4 font-mono">{t('footer.quickLinks')}</h3>
               <ul className="space-y-2 text-sm font-mono">
                 <li>
-                  <Link to="/" className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors">
+                  <Link to="/" className="text-slate-300 hover:text-blue-400 transition-colors">
                     {t('nav.home')}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog" className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors">
+                  <Link to="/blog" className="text-slate-300 hover:text-blue-400 transition-colors">
                     {t('nav.blog')}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors">
+                  <Link to="/about" className="text-slate-300 hover:text-blue-400 transition-colors">
                     {t('nav.about')}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-gray-900 dark:text-terminal-gold font-semibold mb-4 font-mono">{t('footer.topics')}</h3>
+              <h3 className="text-white font-semibold mb-4 font-mono">{t('footer.topics')}</h3>
               <ul className="space-y-2 text-sm font-mono">
-                <li className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors cursor-pointer">
+                <li className="text-slate-300 hover:text-blue-400 transition-colors cursor-pointer">
                   {t('footer.aiMl')}
                 </li>
-                <li className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors cursor-pointer">
+                <li className="text-slate-300 hover:text-blue-400 transition-colors cursor-pointer">
                   {t('footer.vibecoding')}
                 </li>
-                <li className="text-gray-600 dark:text-terminal-fg hover:text-primary-600 dark:hover:text-terminal-gold transition-colors cursor-pointer">
+                <li className="text-slate-300 hover:text-blue-400 transition-colors cursor-pointer">
                   {t('footer.solopreneurship')}
                 </li>
               </ul>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-200 dark:border-terminal-gold/30 text-center text-sm font-mono text-gray-600 dark:text-terminal-fg">
+          <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm font-mono text-slate-400">
             <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
           </div>
         </div>

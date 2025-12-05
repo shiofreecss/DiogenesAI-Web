@@ -8,6 +8,8 @@ import Projects from './pages/Projects'
 import Knowledge from './pages/Knowledge'
 import Post from './pages/Post'
 import About from './pages/About'
+import Tools from './pages/Tools'
+import Courses from './pages/Courses'
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/knowledge" element={<Knowledge />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/tools" element={<Tools />} />
+              <Route path="/courses" element={<Courses />} />
               <Route path="/post/:slug" element={<Post />} />
               <Route path="/about" element={<About />} />
             </Routes>

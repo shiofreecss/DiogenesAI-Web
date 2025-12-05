@@ -33,10 +33,34 @@ module.exports = {
           red: '#f85149',
         },
       },
+      animation: {
+        'pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        pulse: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: .5 },
+        },
+      },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+          /* Firefox */
+          'scrollbar-width': 'none',
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      }
+      addUtilities(newUtilities)
+    },
   ],
 }
 

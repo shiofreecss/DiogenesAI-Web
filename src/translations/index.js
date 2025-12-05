@@ -2,6 +2,8 @@ export const translations = {
   vi: {
     nav: {
       home: 'Trang chủ',
+      tools: 'Công cụ AI',
+      courses: 'Khóa học',
       blog: 'Blog',
       projects: 'Dự án',
       knowledge: 'Kiến Thức',
@@ -84,6 +86,8 @@ export const translations = {
   en: {
     nav: {
       home: 'Home',
+      tools: 'AI Tools',
+      courses: 'Courses',
       blog: 'Blog',
       projects: 'Projects',
       knowledge: 'Knowledge',
@@ -166,6 +170,8 @@ export const translations = {
   zh: {
     nav: {
       home: '首页',
+      tools: 'AI工具',
+      courses: '课程',
       blog: '博客',
       projects: '项目',
       knowledge: '知识库',
@@ -248,6 +254,8 @@ export const translations = {
   ja: {
     nav: {
       home: 'ホーム',
+      tools: 'AIツール',
+      courses: 'コース',
       blog: 'ブログ',
       projects: 'プロジェクト',
       knowledge: '知識',

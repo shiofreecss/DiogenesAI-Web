@@ -1,127 +1,208 @@
-# DiogenesAI - AI/ML/Vibecoding/Solopreneur Blog
+# DiogenesAI Web - AI Tools & Courses Platform
 
-A modern React-based blog website for exploring AI, Machine Learning, Vibecoding, and Solopreneurship topics.
+Trang web chia sẻ công cụ AI và khóa học theo phong cách BenPromptAI.
 
-## Features
+## 🎨 Tính năng
 
-- 🎨 Modern, beautiful UI with Tailwind CSS
-- 📝 Markdown-based blog posts
-- 🏷️ Tag filtering system
-- 📱 Fully responsive design
-- ⚡ Fast and optimized with Vite
-- 🎯 Clean, semantic code structure
+### 1. **Tools Page** (`/tools`)
+- ✨ Danh sách công cụ AI được tuyển chọn
+- � Tìm kiếm công cụ theo tên, mô tả, tags
+- 🏷️ Lọc theo categories (AI Chat, AI Image, AI Video, AI Coding, etc.)
+- ⭐ Hiển thị rating, reviews, pricing
+- 🎯 Featured tools section
+- 🔗 Affiliate links
+- � Dark theme với animations đẹp mắt
 
-## Tech Stack
+### 2. **Courses Page** (`/courses`)
+- 📚 Danh sách khóa học AI & ML
+- 🔍 Tìm kiếm khóa học
+- 🏷️ Lọc theo categories
+- 💰 Hiển thị giá, discount
+- ⏱️ Thông tin duration, số học viên, số bài học
+- 🎓 Certificate badge
+- 🎨 Beautiful course cards với thumbnails
 
-- **React 18** - UI library
-- **React Router** - Client-side routing
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Styling
-- **react-markdown** - Markdown rendering
-- **remark-gfm** - GitHub Flavored Markdown support
-- **rehype-highlight** - Code syntax highlighting
+### 3. **Design System**
+- 🌙 Dark theme with gradient backgrounds
+- 💫 Smooth animations & transitions
+- 🎨 Modern card-based layouts
+- ✨ Hover effects
+- 📱 Fully responsive
+- 🎯 Premium aesthetics
 
-## Getting Started
+## 🚀 Cài đặt
 
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Navigate to the project directory:
 ```bash
+# Clone repository
+git clone [your-repo-url]
 cd DiogenesAI-Web
-```
 
-2. Install dependencies:
-```bash
+# Cài đặt dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Chạy development server
 npm run dev
-```
 
-4. Open your browser and visit `http://localhost:3000`
-
-## Project Structure
-
-```
-DiogenesAI-Web/
-├── src/
-│   ├── components/
-│   │   └── Layout.jsx          # Main layout with navigation
-│   ├── pages/
-│   │   ├── Home.jsx            # Homepage
-│   │   ├── Blog.jsx            # Blog listing page
-│   │   ├── Post.jsx            # Individual post page
-│   │   └── About.jsx           # About page
-│   ├── data/
-│   │   └── posts.js            # Blog posts data
-│   ├── App.jsx                 # Main app component
-│   ├── main.jsx                # Entry point
-│   └── index.css               # Global styles
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── postcss.config.js
-```
-
-## Adding New Posts
-
-To add a new blog post, edit `src/data/posts.js` and add a new post object:
-
-```javascript
-{
-  slug: 'your-post-slug',
-  title: 'Your Post Title',
-  excerpt: 'A brief description of your post',
-  date: '2024-01-30',
-  readTime: 5,
-  tags: ['Tag1', 'Tag2'],
-  emoji: '🎯',
-  content: `# Your Markdown Content Here
-
-Your post content in markdown format...
-`
-}
-```
-
-## Building for Production
-
-```bash
+# Build cho production
 npm run build
 ```
 
-The built files will be in the `dist` directory.
+## 📂 Cấu trúc Project
 
-## Preview Production Build
-
-```bash
-npm run preview
+```
+src/
+├── components/
+│   ├── Layout.jsx           # Main layout với navigation
+│   ├── ThemeToggle.jsx      # Dark/Light mode toggle
+│   └── LanguageToggle.jsx   # Language selector
+├── pages/
+│   ├── Home.jsx
+│   ├── Tools.jsx            # 🆕 AI Tools listing
+│   ├── Courses.jsx          # 🆕 Courses listing
+│   ├── Blog.jsx
+│   ├── Projects.jsx
+│   ├── Knowledge.jsx
+│   └── About.jsx
+├── data/
+│   ├── aiTools.js           # 🆕 AI Tools database
+│   └── courses.js           # 🆕 Courses database
+├── translations/
+│   └── index.js             # Multi-language support
+└── App.jsx
 ```
 
-## Customization
+## 📝 Cách thêm công cụ AI mới
 
-### Colors
+Chỉnh sửa file `src/data/aiTools.js`:
 
-Edit `tailwind.config.js` to customize the color scheme. The primary color is defined in the theme.
+```javascript
+{
+  id: 17,
+  name: "Tool Name",
+  slug: "tool-slug",
+  category: "ai-chat", // hoặc ai-image, ai-video, etc.
+  tags: ["Tag1", "Tag2"],
+  description: "Mô tả công cụ...",
+  pricing: "FREEMIUM", // hoặc FREE, PREMIUM
+  rating: 4.8,
+  reviews: 1234,
+  featured: true, // hiển thị ở Featured section
+  logo: "https://logo-url.png",
+  affiliateLink: "https://your-affiliate-link.com",
+  color: "#hexcolor"
+}
+```
 
-### Styling
+## 📚 Cách thêm khóa học mới
 
-- Global styles: `src/index.css`
-- Component styles: Inline Tailwind classes in components
-- Prose styles: Custom styles for markdown content in `src/index.css`
+Chỉnh sửa file `src/data/courses.js`:
 
-## License
+```javascript
+{
+  id: 11,
+  title: "Tên khóa học",
+  slug: "course-slug",
+  instructor: "Tên giảng viên",
+  category: "prompt-engineering", // hoặc business, development, etc.
+  tags: ["Tag1", "Tag2"],
+  description: "Mô tả khóa học...",
+  pricing: "PREMIUM",
+  price: 1990000,
+  originalPrice: 2990000,
+  rating: 4.9,
+  students: 1234,
+  duration: "12 giờ",
+  level: "Beginner to Advanced",
+  featured: true,
+  thumbnail: "https://image-url.jpg",
+  lessons: 45,
+  projects: 8,
+  certificateIncluded: true,
+  affiliateLink: "https://your-affiliate-link.com"
+}
+```
 
-MIT
+## 🎨 Categories
 
-## Contributing
+### AI Tools Categories:
+- `ai-chat` - AI Chat assistants
+- `ai-image` - Image generation
+- `ai-video` - Video creation
+- `ai-coding` - Coding assistants
+- `ai-marketing` - Marketing tools
+- `ai-music` - Music generation
+- `ai-automation` - Automation tools
+- `ai-design` - Design tools
+- `ai-productivity` - Productivity apps
 
-Feel free to submit issues and enhancement requests!
+### Course Categories:
+- `prompt-engineering` - Prompt Engineering
+- `business` - Business & Productivity
+- `machine-learning` - Machine Learning
+- `development` - Development
+- `content-creation` - Content Creation
+- `design` - Design & Art
+- `automation` - Automation
+- `video` - Video Production
+- `data-science` - Data Science
 
+## 🌐 Đa ngôn ngữ
+
+Website hỗ trợ 4 ngôn ngữ:
+- 🇻🇳 Tiếng Việt
+- 🇺🇸 English
+- 🇨🇳 中文
+- 🇯🇵 日本語
+
+Để thêm translations, chỉnh sửa `src/translations/index.js`
+
+## 🎯 Navigation
+
+Các trang chính:
+- `/` - Trang chủ
+- `/tools` - 🆕 Công cụ AI
+- `/courses` - 🆕 Khóa học
+- `/blog` - Blog
+- `/knowledge` - Kiến thức
+- `/projects` - Dự án
+- `/about` - Giới thiệu
+
+## 🛠️ Tech Stack
+
+- **React** 18 - UI framework
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **React Router** - Routing
+- **Lucide React** - Icons
+- **React Markdown** - Markdown rendering
+
+## 📱 Screenshots
+
+### Tools Page
+![Tools Page Preview]
+
+### Courses Page
+![Courses Page Preview]
+
+## 🎨 Design Inspiration
+
+Thiết kế lấy cảm hứng từ [BenPromptAI](https://www.benpromptai.com/vi/tools):
+- Dark theme với gradients
+- Card-based layouts
+- Smooth animations
+- Category filters
+- Search functionality
+- Premium aesthetics
+
+## 📄 License
+
+MIT License - Feel free to use for your own projects!
+
+## 👨‍💻 Author
+
+**DiogenesAI Team**
+- Exploring AI, ML, Vibecoding & Solopreneurship
+
+---
+
+Made with ❤️ by DiogenesAI
